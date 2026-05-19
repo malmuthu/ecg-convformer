@@ -1,0 +1,28 @@
+# Data - never commit raw or processed data
+data/raw/
+data/processed/
+
+# Model checkpoints
+results/checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environments
+.env
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# W&B logs
+wandb/
+
+# OS
+.DS_Store
