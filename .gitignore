@@ -26,3 +26,6 @@ wandb/
 
 # OS
 .DS_Store
+
+# Conda
+.conda/
