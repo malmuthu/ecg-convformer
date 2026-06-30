@@ -46,7 +46,7 @@ def download_record(record_name: str, db_name: str, dest_dir: Path) -> None:
     try:
         wfdb.dl_database(db_name, str(dest_dir), records=[record_name])
     except Exception as e:
-        print("Warning: could not download {record_name} from {db_name}: {e}")
+        print(f"Warning: could not download {record_name} from {db_name}: {e}")
 
 def download_mitbih() -> None:
     """

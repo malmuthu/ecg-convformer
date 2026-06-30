@@ -85,7 +85,7 @@ def load_dataset(db: str) -> tuple:
     Load preprocessed arrays from disk for a given database.
 
     Args:
-        db  : "mit for MIT-BIH or "incart" for INCART
+        db  : "mit" for MIT-BIH or "incart" for INCART
 
     Returns:
         beats   : np.ndarray (N, 187)
