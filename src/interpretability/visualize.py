@@ -13,7 +13,7 @@ Usage:
 
 import matplotlib.pyplot as plt
 import numpy as np
-from mathplotlib.colors import TwoSlopeNorm
+from matplotlib.colors import TwoSlopeNorm
 from pathlib import Path
 
 PROJ_ROOT = Path(__file__).resolve().parents[2]
@@ -135,6 +135,7 @@ def compute_region_attribution_score(attribution: np.ndarray) -> dict:
 
     abs_attr = np.abs(attribution)
     total_mass = abs_attr.sum() + 1e-8
+    covered_mass = 0.0
 
     scores = {}
 

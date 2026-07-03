@@ -112,13 +112,15 @@ def train_one_epoch(model: nn.Module, loader: DataLoader, optimizer: torch.optim
     total_loss = 0.0
     all_preds, all_labels = [], []
 
+    use_amp = (device.type == "cuda")
+
     for beats, labels in loader:
         beats = beats.to(device)
         labels = labels.to(device)
 
         optimizer.zero_grad()
 
-        with torch.cuda.amp.autocast():
+        with torch.cuda.amp.autocast(enabled=use_amp):
             logits = model(beats)
             loss = criterion(logits, labels)
 

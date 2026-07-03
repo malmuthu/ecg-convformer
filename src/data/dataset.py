@@ -55,7 +55,7 @@ class ECGDataset(Dataset):
             beat = self.transform(beat)
         return beat, self.labels[idx]
     
-    def get_class_weights(self) -> torch.Tensor:
+    def get_class_weights(self, max_weight: float = 5.0) -> torch.Tensor:
         """
         Compute inverse-frequency class weights for weighted loss
 
@@ -73,7 +73,8 @@ class ECGDataset(Dataset):
         for cls in range(5):
             count = int((labels_np == cls).sum())
             if count > 0:
-                weight = total_beats / (5 * count)
+                raw_weight = total_beats / (5 * count)
+                weight = min(raw_weight, max_weight)
             else:
                 weight = 0.0
             weights[cls] = weight
@@ -93,9 +94,9 @@ def load_dataset(db: str) -> tuple:
         rec_ids : np.ndarray (N,)
     """
 
-    beats = np.load(PROJECT_DATA_DIR / f"{db}_beats.npy")
-    labels = np.load(PROJECT_DATA_DIR / f"{db}_labels.npy")
-    rec_ids = np.load(PROJECT_DATA_DIR / f"{db}_ids.npy")
+    beats = np.load(PROJECT_DATA_DIR / f"{db}db_beats.npy")
+    labels = np.load(PROJECT_DATA_DIR / f"{db}db_labels.npy")
+    rec_ids = np.load(PROJECT_DATA_DIR / f"{db}db_ids.npy")
     return beats, labels, rec_ids
 
 def get_class_distribution(labels: np.ndarray) -> dict:

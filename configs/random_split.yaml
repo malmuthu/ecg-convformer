@@ -1,0 +1,24 @@
+# Run identification
+run_name: "convformer_random_v1"
+
+# Data
+split: "random"
+
+# Model
+model: "convformer"
+d_model: 128
+n_heads: 4
+d_ff: 256
+n_layers: 2
+dropout: 0.1
+
+# Loss
+loss: "weighted_ce"
+
+# Training
+batch_size: 64
+lr: 0.0005
+weight_decay: 0.0001
+warmup_epochs: 5
+max_epochs: 100
+patience: 15
