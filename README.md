@@ -70,8 +70,8 @@ Full implementation: [`src/models/convformer.py`](src/models/convformer.py), [`s
 
 ### Ablation — does the transformer add value?
 
-| Model | Parameters | Macro F1 (test) |
-|---|---|---|
+| Model | Parameters | 
+|---|---|
 | ConvOnly baseline (conv stem + classifier, no transformer) | `0.405` |
 | ECG-ConvFormer (full) | `0.387` |
 
