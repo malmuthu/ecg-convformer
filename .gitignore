@@ -5,6 +5,10 @@ data/processed/
 # Model checkpoints
 results/checkpoints/
 
+# Results
+results/figures/
+results/metrics/
+
 # Python
 __pycache__/
 *.py[cod]
